@@ -101,11 +101,11 @@ class ApiServiceImpl(
     }
 
 
-    override suspend fun creategetgdgmembers(productRequest: RequestModel): ResponseModel? {
+    override suspend fun creategetgdgmembers(gdgRequest: RequestModel): ResponseModel? {
         return try {
             client.post<ResponseModel> {
                 url(ApiRoutes.GDGMEMBERS)
-                body = productRequest
+                body = gdgRequest
             }
         } catch (ex: RedirectResponseException) {
             // 3xx - responses
